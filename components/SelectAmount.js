@@ -10,9 +10,9 @@ const SelectAmount = ({ amount, setAmount }) => {
 
     return (
         <Container>
-            <QuantityButton onClick={() => handleChange(1)}>-</QuantityButton>
+            <QuantityButton onClick={() => handleChange(-1)}>-</QuantityButton>
             <Quantity>{amount}</Quantity>
-            <QuantityButton onClick={() => handleChange(-1)}>+</QuantityButton>
+            <QuantityButton onClick={() => handleChange(1)}>+</QuantityButton>
         </Container>
     );
 };

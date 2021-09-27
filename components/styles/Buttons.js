@@ -58,10 +58,22 @@ const OutlinedButton = styled.button`
     }
 `;
 
+const SuccessButton = styled.button`
+    ${base}
+    background-color: #75A636;
+    border-radius: 0;
+    padding: 0.8rem 5rem;
+
+    &:hover {
+        background-color: #638c2e;
+    }
+`;
+
 export {
     BlackButton,
     LayoutButton,
     PrimaryButton,
     OutlinedButton,
     QuantityButton,
+    SuccessButton,
 };

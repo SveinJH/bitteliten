@@ -40,9 +40,11 @@ const ChangeAddress = styled.div`
 `;
 
 const DeliveryContainer = styled.div`
-    width: 100%;
+    background-color: var(--backgroundColor);
     display: flex;
     justify-content: center;
+    padding: 2rem 0;
+    width: 100%;
 `;
 
 const Header = styled.div`

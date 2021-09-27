@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     }  
 
     body {
-        background-color: #FDF2E9;
+        background-color: #fff;
         font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         padding: 0;
         margin: 0;
@@ -70,9 +70,11 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h5 {
+        border-bottom: 2px solid #eee;
         font-size: 2rem;
-        margin: 0;
         font-weight: 400;
+        margin: 0;
+        padding: .5rem;
     }
 
     fieldset {
@@ -105,6 +107,7 @@ const InnerStyles = styled.div`
 
 const PageStyles = styled.div`
     display: grid;
+    background-color: var(--backgroundColor);
 `;
 
 export default Page;
