@@ -54,7 +54,7 @@ const Home = () => {
                 </Images>
             </Main>
             <ProductsSection>
-                <Products transform hasMaxWidth isGrid />
+                <Products transform hasMaxWidth />
                 <Link href="/produkter" passHref>
                     <PrimaryButton>Til Produkter</PrimaryButton>
                 </Link>

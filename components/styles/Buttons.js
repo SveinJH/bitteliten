@@ -69,6 +69,15 @@ const SuccessButton = styled.button`
     }
 `;
 
+const TextButton = styled.button`
+    ${base}
+    background-color: transparent;
+    color: var(--gray);
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    padding: 0;
+`;
+
 export {
     BlackButton,
     LayoutButton,
@@ -76,4 +85,5 @@ export {
     OutlinedButton,
     QuantityButton,
     SuccessButton,
+    TextButton,
 };

@@ -3,30 +3,10 @@ import CartItems from '../components/CartItems';
 import Delivery from '../components/checkout/Delivery';
 import PaymentMethod from '../components/checkout/PaymentMethod';
 
-import bottle from '../assets/img/bottle.png';
 import klarna from '../assets/brands/klarna.svg';
 import vipps from '../assets/brands/vipps.svg';
 import { Bold } from '../components/styles/Text';
 import { SuccessButton } from '../components/styles/Buttons';
-
-const CART_ITEMS_DATA = [
-    {
-        id: 1,
-        name: 'Flaske',
-        image: bottle,
-        amount: 2,
-        price: 39,
-        inStock: true,
-    },
-    {
-        id: 2,
-        name: 'Flaske',
-        image: bottle,
-        amount: 2,
-        price: 39,
-        inStock: true,
-    },
-];
 
 const CheckoutPage = () => {
     return (
@@ -34,7 +14,7 @@ const CheckoutPage = () => {
             <h2>Kasse</h2>
             <Delivery />
             <CheckoutContainer>
-                <CartItems items={CART_ITEMS_DATA} />
+                <CartItems />
                 <CheckoutMethodsContainer>
                     <h5>Ekspressutsjekk</h5>
                     <CheckoutMethods>

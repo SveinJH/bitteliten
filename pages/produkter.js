@@ -18,15 +18,13 @@ const CATEGORIES = [
 const BRANDS = ['Rosenlund', 'Le Creuset'];
 
 const ProductsPage = () => {
-    const [isGrid, setIsGrid] = useState(true);
-
     return (
         <ProductsPageStyles>
             <h2>Produkter</h2>
             <Container>
                 <Filters brands={BRANDS} categories={CATEGORIES} />
-                <Sorting isGrid={isGrid} setGrid={setIsGrid} />
-                <Products isGrid={isGrid} />
+                <Sorting />
+                <Products />
             </Container>
         </ProductsPageStyles>
     );

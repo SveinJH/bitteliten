@@ -1,7 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import Navbar from './Navbar';
-import Footer from './Footer';
 import { useRouter } from 'next/router';
+import Providers from '../components/Providers';
+
+import Footer from './Footer';
+import Navbar from './Navbar';
+import Cart from './Cart';
+import { useCart } from '../context/useCart';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -74,7 +78,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 2rem;
         font-weight: 400;
         margin: 0;
-        padding: .5rem;
+        padding: 0;
     }
 
     fieldset {
@@ -90,12 +94,15 @@ const Page = ({ children }) => {
     const isCheckout = router.pathname === '/kasse';
 
     return (
-        <PageStyles>
-            <GlobalStyles />
-            {!isCheckout && <Navbar />}
-            <InnerStyles>{children}</InnerStyles>
-            {!isCheckout && <Footer />}
-        </PageStyles>
+        <Providers>
+            <PageStyles>
+                <GlobalStyles />
+                {!isCheckout && <Navbar />}
+                <InnerStyles>{children}</InnerStyles>
+                {!isCheckout && <Footer />}
+                {!isCheckout && <Cart />}
+            </PageStyles>
+        </Providers>
     );
 };
 

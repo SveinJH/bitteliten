@@ -1,31 +1,26 @@
 import styled from 'styled-components';
 import Product from './Product';
+import { useFilters } from '../context/useFilters';
 
-import bottleImg from '../assets/img/bottle.png';
-import ProductRow from './ProductRow';
+import { DUMMY_PRODUCTS } from '../dummydata';
 
-const PRODUCT_INFO = {
-    id: 1,
-    name: 'Flaske',
-    brand: 'Rosenlund',
-    price: 39,
-    image: bottleImg,
-};
+const Products = ({ transform, hasMaxWidth }) => {
+    const { selectedBrands } = useFilters();
 
-const Products = ({ isGrid, transform, hasMaxWidth }) => {
+    const filteredProducts = selectedBrands.length
+        ? DUMMY_PRODUCTS.filter((product) =>
+              selectedBrands.includes(product.brand)
+          )
+        : DUMMY_PRODUCTS;
+
     return (
         <ProductsContainer
-            isGrid={isGrid}
             transform={transform}
             hasMaxWidth={hasMaxWidth}
             className="products"
         >
-            {new Array(8).fill(0).map((_, idx) => {
-                return isGrid ? (
-                    <Product key={idx} product={PRODUCT_INFO} />
-                ) : (
-                    <ProductRow key={idx} product={PRODUCT_INFO} />
-                );
+            {filteredProducts.map((product) => {
+                return <Product key={product.id} product={product} />;
             })}
         </ProductsContainer>
     );
@@ -33,8 +28,7 @@ const Products = ({ isGrid, transform, hasMaxWidth }) => {
 
 const ProductsContainer = styled.div`
     display: grid;
-    grid-template-columns: ${(props) =>
-        props.isGrid ? 'repeat(auto-fit, 225px)' : '1fr'};
+    grid-template-columns: repeat(auto-fit, 225px);
     justify-content: space-between;
     grid-gap: 3rem;
     width: 100%;

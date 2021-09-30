@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 const Product = ({ product }) => {
-    const { name, brand, price, image } = product;
+    const { id, name, brand, price, image } = product;
+    const router = useRouter();
 
     return (
         <ProductContainer>
@@ -15,7 +17,12 @@ const Product = ({ product }) => {
                 <Price>{price},-</Price>
             </Description>
             <Actions>
-                <button className="btn1">Les mer</button>
+                <button
+                    className="btn1"
+                    onClick={() => router.push(`/produkter/${id}`)}
+                >
+                    Les mer
+                </button>
                 <button className="btn2">Kjøp</button>
             </Actions>
         </ProductContainer>
@@ -62,11 +69,12 @@ const Description = styled.div`
 `;
 
 const ImageContainer = styled.div`
+    align-items: center;
     background-color: #f5f5f5;
     border-radius: 16px 16px 0 0;
     display: flex;
+    padding: 2rem;
     justify-content: center;
-    align-items: center;
 
     img {
         width: 80%;

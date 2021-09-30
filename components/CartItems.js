@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import CartItem from './CartItem';
 
-const CartItems = ({ items }) => {
+import { DUMMY_CART_ITEMS } from '../dummydata';
+
+const CartItems = () => {
     return (
         <CartItemsContainer>
-            {items.map((item) => (
+            {DUMMY_CART_ITEMS.map((item) => (
                 <CartItem key={item.id} item={item} />
             ))}
         </CartItemsContainer>

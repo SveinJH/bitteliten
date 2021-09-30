@@ -1,57 +1,83 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useCart } from '../context/useCart';
+import { BsFillBagFill } from 'react-icons/bs';
+import { FaShoppingCart } from 'react-icons/fa';
+import { MdContactPhone } from 'react-icons/md';
+import { IoPersonCircle } from 'react-icons/io5';
 
 const Navbar = () => {
+    const { toggleCart } = useCart();
+
+    const isLoggedIn = true;
+
     return (
         <NavbarStyles>
             <ul>
-                <li className="logo">
+                <NavItem className="logo">
                     <Link href="/">LOGO</Link>
-                </li>
-                <li>
+                </NavItem>
+                <NavItem>
+                    <BsFillBagFill color="var(--primary)" size={24} />
                     <Link href="/produkter">Produkter</Link>
-                </li>
-                <li>
-                    <Link href="/bilder">Bilder</Link>
-                </li>
-                <li>
-                    <Link href="/om">Om</Link>
-                </li>
-                <li>
+                </NavItem>
+                <NavItem>
+                    <MdContactPhone color="var(--primary)" size={24} />
                     <Link href="/kontakt">Kontakt</Link>
-                </li>
-                <li>Handlevogn</li>
+                </NavItem>
+                {
+                    <NavItem>
+                        <IoPersonCircle color="var(--primary)" size={24} />
+                        <Link href={isLoggedIn ? '/minside' : '/innlogging'}>
+                            {isLoggedIn ? 'Torbjørn' : 'Logg inn'}
+                        </Link>
+                    </NavItem>
+                }
+                <Cart onClick={toggleCart}>
+                    <FaShoppingCart color="var(--primary)" size={24} />
+                </Cart>
             </ul>
         </NavbarStyles>
     );
 };
 
+const Cart = styled.li`
+    cursor: pointer;
+`;
+
 const NavbarStyles = styled.nav`
-    background-color: #fff;
-    height: 6rem;
-    display: flex;
     align-items: center;
+    background-color: #fff;
+    display: flex;
+    height: 6rem;
 
     ul {
-        margin: 0;
+        align-items: center;
         display: flex;
         gap: 2rem;
-        padding: 2rem;
+        margin: 0;
+        padding: 2rem 4rem;
         width: 100%;
 
         .logo {
             margin-right: auto;
         }
     }
+`;
 
-    li {
-        border: 1px solid transparent;
-        padding: 0.4rem 2rem;
-        transition: all 0.25s;
+const NavItem = styled.li`
+    align-items: center;
+    border: 1px solid transparent;
+    color: var(--black);
+    display: flex;
+    font-weight: 300;
+    gap: 0.8rem;
+    padding: 0.4rem 2rem;
+    text-transform: uppercase;
+    transition: all 0.25s;
 
-        &:hover {
-            border-bottom: 1px solid #000;
-        }
+    &:hover {
+        border-bottom: 1px solid #000;
     }
 `;
 

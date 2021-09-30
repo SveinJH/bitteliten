@@ -19,6 +19,7 @@ const baseInput = css`
 const Input = styled.input`
     ${base}
     ${baseInput}
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 `;
 
 const SortSelect = styled.select`
